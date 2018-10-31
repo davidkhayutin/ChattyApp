@@ -21,8 +21,7 @@ class ChatBar extends Component {
 
   handleMessageChange(event){
     if(event.key === 'Enter'){
-      // check to see if username has changed, if so, send event to update username in parent
-      // send update user event
+
       this.props.newPost(this.state.message)
       //
       event.target.value = '';
