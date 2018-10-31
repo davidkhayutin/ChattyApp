@@ -5,35 +5,41 @@ class ChatBar extends Component {
     super(props)
 
     this.state ={
-      currentUser: this.props.user,
+      userName: props.user,
       message: ''
     }
 
     this.handleMessageChange = this.handleMessageChange.bind(this)
     this.handleUserNameChange = this.handleUserNameChange.bind(this)
+    this.onMessageChange = this.onMessageChange.bind(this)
+    this.onUserChange = this.onUserChange.bind(this)
+  }
+
+  onMessageChange(event){
+    this.setState({message: event.target.value})
   }
 
   handleMessageChange(event){
-    this.setState({message: event.target.value})
     if(event.key === 'Enter'){
-      console.log(event)
       // check to see if username has changed, if so, send event to update username in parent
       // send update user event
-      this.props.newPost(this.state.message, this.state.currentUser)
+      this.props.newPost(this.state.message)
       //
       event.target.value = '';
     }
-    console.log(event.key)
+  }
+  onUserChange(event){
+    this.setState({userName: event.target.value})
   }
    handleUserNameChange(event){
-    this.setState({currentUser: event.target.value})
-    ///
+    this.props.newUser(this.state.userName)
+
   }
   render(){
     return (
     <footer className="chatbar">
-      <input className="chatbar-username" placeholder="Your Name (Optional" defaultValue={this.state.currentUser} onKeyUp={(e) => this.handleUserNameChange(e)}/>
-      <input className="chatbar-message" placeholder="Type a message and hit ENTER" onKeyUp={(e) => this.handleMessageChange(e)} />
+      <input className="chatbar-username" value={this.state.userName} onChange={this.onUserChange} placeholder="Your Name (Optional"  onBlur={this.handleUserNameChange}/>
+      <input className="chatbar-message" value={this.state.message}  onChange={this.onMessageChange} placeholder="Type a message and hit ENTER" onKeyUp={this.handleMessageChange} />
     </footer>
     )
   }

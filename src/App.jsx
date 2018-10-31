@@ -5,7 +5,7 @@ import MessageList from './MessageList.jsx';
 
 const data =
 {
-  currentUser: {name: "Bob"}, // optional. if currentUser is not defined, it means the user is Anonymous
+  currentUser: {name: "David"}, // optional. if currentUser is not defined, it means the user is Anonymous
   messages: [
     {
       id: 1,
@@ -25,21 +25,26 @@ class App extends Component {
    constructor(props) {
     super(props);
      this.state = {
-      currentUser: data.currentUser.name,
+      currentUser: data.currentUser,
       messages: data.messages
     };
      this.newPost = this.newPost.bind(this);
+     this.newUser = this.newUser.bind(this)
   }
-   newPost(content, username) {
+   newPost(content) {
     const newMessage = {
       id: this.state.messages.length + 1,
-      username,
+      username: this.state.currentUser.name,
       content
     }
+
     let messageArray = [...this.state.messages, newMessage];
     this.setState({messages: messageArray})
-    console.log(this.state.currentUser)
-    console.log('username', username)
+
+  }
+
+  newUser(name){
+    this.setState({currentUser: {name}})
   }
    render() {
     return (
@@ -48,7 +53,7 @@ class App extends Component {
           <a href="/" className="navbar-brand">Chatty</a>
         </nav>
         <MessageList messages={this.state.messages} />
-        <ChatBar user={this.state.currentUser} newPost={this.newPost} />
+        <ChatBar user={this.state.currentUser.name} newPost={this.newPost} newUser={this.newUser} />
       </div>
     );
   }
