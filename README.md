@@ -17,21 +17,13 @@ open http://localhost:3000
 ### Screenshot GIFS
 
 
-!["The main page you see on loading including different color text for each user"]
+!["The main page you see on loading including different color text for each user"](https://github.com/davidkhayutin/ChattyApp/blob/master/docs/Main.gif)
 
 
-(https://github.com/davidkhayutin/ChattyApp/blob/master/docs/Main.gif)
+!["Adding a new window to the conversation by using web-sockets"](https://github.com/davidkhayutin/ChattyApp/blob/master/docs/AddingNewWindow.gif)
 
 
-!["Adding a new window to the conversation by using web-sockets"]
-
-(https://github.com/davidkhayutin/ChattyApp/blob/master/docs/AddingNewWindow.gif)
-
-
-!["Closing conversation windows, and watching the client count adjust dynamically"]
-
-
-(https://github.com/davidkhayutin/ChattyApp/blob/master/docs/UserCountChanges.gif)
+!["Closing conversation windows, and watching the client count adjust dynamically"](https://github.com/davidkhayutin/ChattyApp/blob/master/docs/UserCountChanges.gif)
 
 
 ### Dependencies
