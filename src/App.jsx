@@ -32,8 +32,7 @@ class App extends Component {
       currentUser: data.currentUser,
       messages: [],
       type: '',
-      count: 0,
-      color: ''
+      count: 0
     };
      this.newPost = this.newPost.bind(this);
      this.newUser = this.newUser.bind(this)
