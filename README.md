@@ -1,6 +1,6 @@
 React Boilerplate
 =====================
-
+![](main.gif)
 A minimal and light dev environment for ReactJS.
 
 ### Usage
