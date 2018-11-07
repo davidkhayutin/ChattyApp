@@ -28,13 +28,25 @@ class ChatBar extends Component {
   onUserChange(event){
     this.setState({userName: event.target.value})
   }
+
+  userChangebyEnter(event){
+     if(event.key === 'Enter'){
+      this.props.newUser(this.state.userName);
+      onBlur = ""
+    }
+  }
+  // while this function could be implemented by using enter, I decided to use onBlur instead,
+  // giving the user the ability to tab or click off the user name and having the appropriate change triggered.
+  // I did not find hitting the "enter" key when changing user name a natural process as you would still need to tab over or click over thereafter.
+  // The way I have set it up essentialy completes two jobs in one action
+
    handleUserNameChange(event){
     this.props.newUser(this.state.userName)
   }
   render(){
     return (
     <footer className="chatbar">
-      <input className="chatbar-username" onChange={this.onUserChange} placeholder="Your Name (Optional)"  onBlur={this.handleUserNameChange}/>
+      <input className="chatbar-username" onChange={this.onUserChange} placeholder="Your Name (Optional)" onBlur={this.handleUserNameChange}/>
       <input className="chatbar-message"  onChange={this.onMessageChange} placeholder="Type a message and hit ENTER" onKeyUp={this.handleMessageChange} />
     </footer>
     )
